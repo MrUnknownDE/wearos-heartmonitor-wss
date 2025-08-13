@@ -4,9 +4,6 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -19,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         ActivityResultContracts.RequestPermission()
     ) { granted ->
         if (!granted) {
-            findViewById<TextView>(R.id.statusText).text = "Permission denied"
+            binding.statusText.text = "Permission denied"
         }
     }
 
@@ -52,6 +49,6 @@ class MainActivity : AppCompatActivity() {
             return
         }
         startForegroundService(Intent(this, HrStreamService::class.java))
-        findViewById<TextView>(R.id.statusText).text = "Starting…"
+        binding.statusText.text = "Starting…"
     }
 }

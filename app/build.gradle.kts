@@ -3,6 +3,7 @@ import com.android.build.api.dsl.ApplicationDefaultConfig
 plugins {
     id("com.android.application")
     kotlin("android")
+    id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 android {
@@ -55,8 +56,11 @@ dependencies {
     // Wear OS UI helpers (optional, for round screens)
     implementation("androidx.wear:wear:1.3.0")
 
-    // Health Services client (Wear OS)
-    implementation("androidx.health:health-services-client:1.1.0")
+    // Health Services client (Wear OS) - Version corrected
+    implementation("androidx.health:health-services-client:1.1.0-alpha01")
+
+    // For .await() on ListenableFuture
+    implementation("androidx.concurrent:concurrent-futures-ktx:1.1.0")
 
     // OkHttp WebSocket
     implementation("com.squareup.okhttp3:okhttp:4.12.0")

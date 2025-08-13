@@ -2,16 +2,13 @@ package com.mrunk.wearhr
 
 import android.content.Context
 import android.util.Log
+import androidx.concurrent.futures.await
 import androidx.health.services.client.ExerciseClient
 import androidx.health.services.client.HealthServices
 import androidx.health.services.client.data.DataType
 import androidx.health.services.client.data.ExerciseCapabilities
 import androidx.health.services.client.data.ExerciseConfig
-import androidx.health.services.client.data.ExerciseGoal
 import androidx.health.services.client.data.ExerciseType
-import androidx.health.services.client.data.HeartRateAccuracy
-import androidx.health.services.client.data.IntervalGoal
-import androidx.health.services.client.data.SetGoal
 import androidx.health.services.client.event.ExerciseUpdate
 import androidx.health.services.client.event.ExerciseUpdateListener
 import kotlinx.coroutines.CoroutineScope
