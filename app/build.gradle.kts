@@ -7,17 +7,14 @@ plugins {
 
 android {
     namespace = "com.mrunk.wearhr"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.mrunk.wearhr"
-        minSdk = 30 // Wear OS 3+
-        targetSdk = 34
+        minSdk = 30        // Wear OS 3+ (passt auch für Wear OS 5)
+        targetSdk = 35
         versionCode = 1
         versionName = "0.1.0"
-
-        // Allow cleartext OFF by default; we use WSS.
-        resourceConfigurations += listOf("en", "de")
     }
 
     buildTypes {
