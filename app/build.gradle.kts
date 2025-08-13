@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace = "com.mrunk.wearhr"
-    compileSdk = 35
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.mrunk.wearhr"
-        minSdk = 30        // Wear OS 3+ (passt auch für Wear OS 5)
-        targetSdk = 35
+        minSdk = 30
+        targetSdk = 34
         versionCode = 1
         versionName = "0.1.0"
     }
@@ -56,7 +56,7 @@ dependencies {
     // Wear OS UI helpers (optional, for round screens)
     implementation("androidx.wear:wear:1.3.0")
 
-    // Health Services client (Wear OS) - Version corrected
+    // Health Services client (Wear OS)
     implementation("androidx.health:health-services-client:1.1.0-alpha01")
 
     // For .await() on ListenableFuture

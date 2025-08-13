@@ -17,10 +17,14 @@
         android:allowBackup="false"
         android:networkSecurityConfig="@xml/network_security_config">
 
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+
         <service
             android:name=".HrStreamService"
             android:exported="false"
-            android:foregroundServiceType="healthData">
+            android:foregroundServiceType="health">
         </service>
 
         <activity android:name=".MainActivity"

@@ -14,7 +14,6 @@ import androidx.health.services.client.event.ExerciseUpdateListener
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
 
 class Health(private val ctx: Context, private val onHr: (Int) -> Unit) : ExerciseUpdateListener {
     private val scope = CoroutineScope(Dispatchers.Default + Job())
@@ -34,14 +33,16 @@ class Health(private val ctx: Context, private val onHr: (Int) -> Unit) : Exerci
     }
 
     suspend fun stop() {
-        exerciseClient.pauseExerciseAsync().await()
-        exerciseClient.endExerciseAsync().await()
-        exerciseClient.clearUpdateListener()
+        runCatching { exerciseClient.pauseExerciseAsync().await() }
+        runCatching { exerciseClient.endExerciseAsync().await() }
+        runCatching { exerciseClient.clearUpdateListener() }
     }
 
     override fun onExerciseUpdateReceived(update: ExerciseUpdate) {
-        val hr = update.latestMetrics[DataType.HEART_RATE_BPM]
-        val bpm = hr?.value?.toInt()
-        if (bpm != null && bpm > 0) onHr(bpm)
+        val hrDataPoint = update.latestMetrics[DataType.HEART_RATE_BPM]
+        val bpm = hrDataPoint?.value?.toInt()
+        if (bpm != null && bpm > 0) {
+            onHr(bpm)
+        }
     }
 }
