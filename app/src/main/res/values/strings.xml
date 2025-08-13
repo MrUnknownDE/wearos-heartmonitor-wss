@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Wear HR</string>
+    <string name="perm_rationale">Die App benötigt Zugriff auf den Herzfrequenzsensor.</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="save">Save</string>
+    <string name="server_url">Server URL (wss://...)</string>
+    <string name="jwt_token">JWT Token</string>
+    <string name="status_disconnected">Disconnected</string>
+</resources>
